@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    int num = 100, n;
+
+    fp = fopen("bin.dat", "wb");
+    fwrite(&num, sizeof(num), 1, fp);
+    fclose(fp);
+
+    fp = fopen("bin.dat", "rb");
+    fread(&n, sizeof(n), 1, fp);
+    printf("Number = %d", n);
+
+    fclose(fp);
+    return 0;
+}
